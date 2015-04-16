@@ -1,0 +1,23 @@
+.content{}
+.header{height: 60px; 
+		font-size:36px; 
+		text-align: center; 
+		background: #02a5fa; 
+		vertical-align: center;
+		line-height: 60px; 
+		font-weight: 700; 
+		font-family: Helvetica;}
+
+.consoleboard{width:300px; 
+		height: 110px; 
+		margin:10px auto;   
+		font-size: 30px;
+		text-align: center; 
+		line-height:110px; 
+		background: #fce166; 
+		vertical-align: center; 
+		font-weight: 700; 
+		font-family: Helvetica;}
+		
+#boardA{}
+#board{background-color:#fb8537}
