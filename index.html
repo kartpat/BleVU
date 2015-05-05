@@ -3,24 +3,39 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
+
         <meta name="msapplication-tap-highlight" content="no" />
+        
         <title>Hello World</title>
         <script type="text/javascript" src="cordova.js"></script>
+
         <script type="text/javascript" src="js/logic_new.js"></script>
-        <script type="text/javascript" src="js/TtsPlugin.js"></script>
+         <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+      
       
         <link type="text/css" rel="stylesheet" href="css/content.css">
+         <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+          <link href='http://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
     </head>
     
     <body onload="onPageLoad()">
         
          <div class="content">
-             <div class="header">BleVu</div>
-              <div class="consoleboard" id="board">Hello!</div>
-              <div class="consoleboard" id="boardA">Initializing</div>
-              <div class="consoleboard" id="boardB">Scanning Beacons</div>
-              <div class="consoleboard" id="boardC">Sampling A,B,C</div>
+            <div class="header">BLEVU</div>
+              <div class="consoleboard" ><a onclick="saveTitle('Go to Japanese Room')">Go to Japanese Room</a></div>
+              <div class="consoleboard" ><a onclick="saveTitle('Go to Conference Room')">Go to Conference Room</a></div>
+              <div class="consoleboard" ><a onclick="saveTitle('Go to Tom's office')"href="findway.html">Go to Tom's office</a></div>
+              <div class="consoleboard" ><a onclick="saveTitle('Go to Restroom')"href="findway.html">Go to Restroom</a></div>
 
          </div>
+
+         <script type="text/javascript">
+            function saveTitle(e){
+             localStorage.setItem("headerrr", e);
+             window.location.href="findway.html"
+            }
+         </script>
     </body>
 </html>

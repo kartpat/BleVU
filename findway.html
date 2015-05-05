@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+         <!--<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>-->
+
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Hello World</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/logic_new.js"></script>
+      
+        <link type="text/css" rel="stylesheet" href="css/content.css">
+         <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
+          <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+          <link href='http://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
+    </head>
+    
+    <body onload="onPageLoad()">
+        
+         <div class="content">
+              <div class="header2" id="header">BleVu</div>
+              <script type="text/javascript">
+              var hdr = document.getElementById('header');
+              var inner = localStorage.getItem('headerrr');
+              console.log("inner", inner);
+              hdr.innerHTML = inner;
+              </script>
+              <div class="consoleboard" id="board">Hello!</div>
+
+              <div class="consoleboard" ><a href="index.html">Guide me to other place! </a></div>
+
+
+                <div id="debugwrap">
+                 <div class="debugboard" id="boardA">Initializing</div>
+                 <div class="debugboard" id="boardB">Scanning Beacons</div>
+                </div>
+                <div id="debugwrap">
+                  <div class="debugboard" id="boardC">Scanning</div>
+                  <div class="debugboard" id="boardD">Scanning</div>
+                </div>
+                 <div id="debugwrap">
+                  <div class="debugboard" id="boardE">Scanning</div>
+                  <div class="debugboard" id="boardF">Scanning</div>
+                </div>
+                 <div id="debugwrap">
+                  <div class="debugboard" id="boardG">Scanning</div>
+                  <div class="debugboard" id="boardH">Scanning</div>
+                </div>
+                 
+                
+         </div>
+    </body>
+</html>

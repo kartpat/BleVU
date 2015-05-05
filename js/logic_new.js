@@ -131,6 +131,11 @@ function changeSS(){
     var oboardA=document.getElementById('boardA');
     var oboardB=document.getElementById('boardB');
     var oboardC=document.getElementById('boardC');
+    var oboardD=document.getElementById('boardD');
+    var oboardE=document.getElementById('boardE');
+    var oboardF=document.getElementById('boardF');
+    var oboardG=document.getElementById('boardG');
+    
     var oboard=document.getElementById('board');
 
     var att = document.createAttribute('role');
@@ -166,9 +171,13 @@ function changeSS(){
     // oboardB.innerHTML="B :"+ssArray[ssArray.length - 2].b;
     // oboardC.innerHTML="C :"+ssArray[ssArray.length - 2].a;
 
-    oboardA.innerHTML="A :"+keyVal[4].currentVal;
-    oboardB.innerHTML="B :"+keyVal[5].currentVal;
-    oboardC.innerHTML="C :"+keyVal[6].currentVal;
+    oboardA.innerHTML="A :"+keyVal[0].currentVal;
+    oboardB.innerHTML="B :"+keyVal[1].currentVal;
+    oboardC.innerHTML="C :"+keyVal[2].currentVal;
+    oboardD.innerHTML="D :"+keyVal[3].currentVal;
+    oboardE.innerHTML="E :"+keyVal[4].currentVal;
+    oboardF.innerHTML="F :"+keyVal[5].currentVal;
+    oboardG.innerHTML="G :"+keyVal[6].currentVal;
     
     // var loopCount = 
     
