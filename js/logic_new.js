@@ -1,7 +1,11 @@
 var ssArray = [];
-var keyVal = [{'id':"1AFBF9A1-2E70-FF13-FC53-2E87A4019A45", 'name': "A", 'instruction': "Walk forward 40ft", 'currentVal': -100},
-              {'id':"E24BFA09-29ED-425E-C715-CBCE048A2DDC", 'name': "B", 'instruction': "Walk forward 20ft", 'currentVal': -100},
-              {'id':"0F73F8FC-CE89-9C84-F48C-082E3EEC6008", 'name': "C", 'instruction': "Turn right and walk 20ft", 'currentVal': -100}];
+var keyVal = [{'id':"1AFBF9A1-2E70-FF13-FC53-2E87A4019A45", 'name': "A", 'instruction': "Walk forward 20ft", 'currentVal': -100},
+              {'id':"E24BFA09-29ED-425E-C715-CBCE048A2DDC", 'name': "B", 'instruction': "Turn left and walk 40ft", 'currentVal': -100},
+              {'id':"0F73F8FC-CE89-9C84-F48C-082E3EEC6008", 'name': "C", 'instruction': "Walk forward 20ft", 'currentVal': -100},
+              {'id':"7F56A336-A0E6-F661-D552-9B4DFABAA084", 'name': "D", 'instruction': "Turn right and walk 20ft", 'currentVal': -100},
+              {'id':"017088A4-F540-560C-B27E-9A13E44CCDFA", 'name': "E", 'instruction': "Turn left and walk 40ft", 'currentVal': -100},
+              {'id':"28EEDCB8-26B4-590A-DFAE-0F2A20BBBE00", 'name': "F", 'instruction': "Walk forward 20ft", 'currentVal': -100},
+              {'id':"C1DA2102-0F0A-86CC-FAC8-7CA6D9BB8C5F", 'name': "G", 'instruction': "Destination Reached", 'currentVal': -100}];
 var i = 0;
 
 function onPageLoad() {
@@ -14,8 +18,8 @@ function onDeviceReady() {
     setInterval(function(){ 
         //oboardA.innerHTML=""
 
-        console.log("Scanning for our BLE Beacons...new definitely");      
-        ssArray.push({'a':-100, 'b':-100, 'c':-100});
+        //console.log("Scanning for our BLE Beacons...new definitely");      
+        ssArray.push({'a':-100, 'b':-100, 'c':-100, 'd':-100, 'e':-100, 'f':-100, 'g':-100});
         ble.scan([], 0.70, scanSuccess, scanFailure);
 
         if (ssArray.length >= 5){
@@ -64,7 +68,7 @@ function checkBeaconID(dataSet){
         }
         keyVal[2].currentVal = ssArray[ssArray.length - 1].c;
     } else if(dataSet.id == "1AFBF9A1-2E70-FF13-FC53-2E87A4019A45"){
-        // console.log("We found A!");
+        //console.log("We found A!");
         // console.log("SignalStrength is :" + dataSet.rssi);
         // ssArray[ssArray.length - 1].a = dataSet.rssi;
         if (dataSet.rssi == 127){
@@ -73,14 +77,54 @@ function checkBeaconID(dataSet){
         ssArray[ssArray.length - 1].a = dataSet.rssi;
         }
         keyVal[0].currentVal = ssArray[ssArray.length - 1].a;
-    }
+    } else if(dataSet.id == "7F56A336-A0E6-F661-D552-9B4DFABAA084"){
+         console.log("We found D!");
+        // console.log("SignalStrength is :" + dataSet.rssi);
+        // ssArray[ssArray.length - 1].a = dataSet.rssi;
+        if (dataSet.rssi == 127){
+            ssArray[ssArray.length - 1].d = -100;
+        }else{
+        ssArray[ssArray.length - 1].d = dataSet.rssi;
+        }
+        keyVal[3].currentVal = ssArray[ssArray.length - 1].d;
+    } else if(dataSet.id == "017088A4-F540-560C-B27E-9A13E44CCDFA"){
+        // console.log("We found E!");
+        // console.log("SignalStrength is :" + dataSet.rssi);
+        // ssArray[ssArray.length - 1].a = dataSet.rssi;
+        if (dataSet.rssi == 127){
+            ssArray[ssArray.length - 1].e = -100;
+        }else{
+        ssArray[ssArray.length - 1].e = dataSet.rssi;
+        }
+        keyVal[4].currentVal = ssArray[ssArray.length - 1].e;
+    } else if(dataSet.id == "28EEDCB8-26B4-590A-DFAE-0F2A20BBBE00"){
+        // console.log("We found F!");
+        // console.log("SignalStrength is :" + dataSet.rssi);
+        // ssArray[ssArray.length - 1].a = dataSet.rssi;
+        if (dataSet.rssi == 127){
+            ssArray[ssArray.length - 1].f = -100;
+        }else{
+        ssArray[ssArray.length - 1].f = dataSet.rssi;
+        }
+        keyVal[5].currentVal = ssArray[ssArray.length - 1].f;
+    } else if(dataSet.id == "C1DA2102-0F0A-86CC-FAC8-7CA6D9BB8C5F"){
+        // console.log("We found G!");
+        // console.log("SignalStrength is :" + dataSet.rssi);
+        // ssArray[ssArray.length - 1].a = dataSet.rssi;
+        if (dataSet.rssi == 127){
+            ssArray[ssArray.length - 1].g = -100;
+        }else{
+        ssArray[ssArray.length - 1].g = dataSet.rssi;
+        }
+        keyVal[6].currentVal = ssArray[ssArray.length - 1].g;
+    } 
 
 
 }
 
 function changeSS(){
     // Maintains only the latest 20 values of Signal strength
-    console.log("inside changeSS");
+    //console.log("inside changeSS");
     if (ssArray.length > 20){
         ssArray.shift();
     }
@@ -122,9 +166,9 @@ function changeSS(){
     // oboardB.innerHTML="B :"+ssArray[ssArray.length - 2].b;
     // oboardC.innerHTML="C :"+ssArray[ssArray.length - 2].a;
 
-    oboardA.innerHTML="A :"+keyVal[0].currentVal;
-    oboardB.innerHTML="B :"+keyVal[1].currentVal;
-    oboardC.innerHTML="C :"+keyVal[2].currentVal;
+    oboardA.innerHTML="A :"+keyVal[4].currentVal;
+    oboardB.innerHTML="B :"+keyVal[5].currentVal;
+    oboardC.innerHTML="C :"+keyVal[6].currentVal;
     
     // var loopCount = 
     
@@ -197,6 +241,7 @@ function changeSS(){
 }
 
 function wayfind(dest,instruct){
+    //this fucntion should return an array list of strings with instructions
 
 
 
