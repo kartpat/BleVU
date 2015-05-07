@@ -237,7 +237,7 @@ function changeSS(){
     oboard.innerHTML=keyVal[i].instruction;
 
     
-    if (keyVal[i].currentVal > -65.0 && i < keyVal.length){
+    if (keyVal[i].currentVal > -70.0 && i < keyVal.length){
 
         if(keyVal.length == i+1){
             keyVal[i].instruction = "Destination Reached!"
