@@ -1,2 +1,2 @@
 # BleVU
-Repo for ongoing BleVU bluetooth nav project.
+Repo for BleVU bluetooth nav project demo. http://www.karthikpatanjali.com/blevu/
